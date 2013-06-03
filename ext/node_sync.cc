@@ -129,4 +129,10 @@ Handle<Value> Sync::Execute(const Arguments &args) {
   return scope.Close(js_result);
 }
 
-NODE_MODULE(node_sync, Sync::Initialize);
+// Exporting function
+extern "C" void init(Handle<Object> target) {
+  HandleScope scope;
+  Sync::Initialize(target);
+}
+
+NODE_MODULE(sync, init);

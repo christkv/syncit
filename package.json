@@ -1,12 +1,15 @@
 {
   "name": "syncit",
   "version": "0.0.1",
-  "description": "Synchronize a Node.js async call while blocking",
+  "description": "Synchronize a Node.js async call while blocking, only use for scripting purposes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
-  "author": "",
+  "devDependencies": {
+    "nodeunit": "latest"
+  },
+  "repository": "sync execute async method blocking",
+  "author": "Christian Kvalheim",
   "license": "BSD"
 }

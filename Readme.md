@@ -35,4 +35,13 @@ var result = new Sync().execute(fs.readFile, fs, __dirname + "/file_read_test.js
 // Result is an object of type {err:.., result:..} mirroring the 
 // callback structure function(err, result) {}
 ```
+API
+===
 
+```javascript
+Sync.prototype.execute(function, object, params...)
+```
+
+The **function** is the function you wish to wrap.
+The **object** is the execution context of the function
+The **params** is the arguments list passed to the wrapped function

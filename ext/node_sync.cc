@@ -120,7 +120,7 @@ Handle<Value> Sync::Execute(const Arguments &args) {
   // While we have not result let event loop run a step at a time
   while(js_result->IsNull()) {
     // Run event loop for a tick
-    uv_run_once(uv_default_loop());    
+    uv_run(uv_default_loop(), UV_RUN_ONCE);
     // Check for return value
     js_result = global->Get(String::New("return_value"));
   }

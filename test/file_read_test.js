@@ -29,9 +29,10 @@ exports['Make your file async read synchronous'] = function(test) {
   test.done();
 }
 
-exports['Read a web page synchronous'] = function(test) {
+exports['Wrap function'] = function(test) {
+  var readFile = new Sync().wrap(fs.readFile);
   var text = fs.readFileSync(__dirname + "/file_read_test.js");
-  var result = new Sync().execute(fs.readFile, fs, __dirname + "/file_read_test.js");
+  var result = readFile(__dirname + "/file_read_test.js");
   test.equal(null, result.err);
   test.deepEqual(text, result.result);
   test.done();

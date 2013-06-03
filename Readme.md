@@ -34,6 +34,11 @@ var Sync = require('sync');
 var result = new Sync().execute(fs.readFile, fs, __dirname + "/file_read_test.js");
 // Result is an object of type {err:.., result:..} mirroring the 
 // callback structure function(err, result) {}
+
+// Wrap the originating function
+var readFile = new Sync().wrap(fs.readFile, {});
+var result = readFile(__dirname + "/file_read_test.js");
+
 ```
 API
 ===
@@ -42,6 +47,14 @@ API
 Sync.prototype.execute(function, object, params...)
 ```
 
-The **function** is the function you wish to wrap.
-The **object** is the execution context of the function
-The **params** is the arguments list passed to the wrapped function
+* The **function** is the function you wish to call in a synchronous manner.
+* The **object** is the execution context of the function
+* The **params** is the arguments list passed to the wrapped function
+
+```javascript
+Sync.prototype.wrap(function, [object])
+```
+
+* The **function** is the function you wish to wrap.
+* The **object** is the execution context of the function (optional)
+

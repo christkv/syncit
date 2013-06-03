@@ -1,1 +1,1 @@
-exports.Sync = require('./build/Release/sync').Sync;
+exports.Sync = require('./lib/sync').Sync;
